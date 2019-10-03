@@ -20,8 +20,7 @@ public class FileManager {
     }
 
     static void serialize(Zooclub zooclub, File file) {
-        try (FileOutputStream fos = new FileOutputStream(file);
-             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
             oos.writeObject(zooclub);
         } catch (IOException e) {
             e.printStackTrace();
